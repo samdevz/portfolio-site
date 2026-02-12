@@ -1,0 +1,60 @@
+@import "variables";
+
+/*============================
+	Theme Color - Teal
+==============================*/
+
+$theme-color: 			$teal;
+$theme-hover-color :    darken($theme-color, 7%);
+
+:root,
+[data-bs-theme="light"] {
+	// Themecolor
+	--#{$prefix}themecolor: #{$theme-color};
+	--#{$prefix}themecolor-rgb: #{to-rgb($theme-color)};
+	
+	--#{$prefix}themehovercolor: #{$theme-hover-color};
+	--#{$prefix}themehovercolor-rgb: #{to-rgb($theme-hover-color)};
+	
+	--#{$prefix}link-color: var(--#{$prefix}themecolor);
+  	--#{$prefix}link-color-rgb: var(--#{$prefix}themecolor-rgb);
+	
+	--#{$prefix}link-hover-color: var(--#{$prefix}themehovercolor);
+	--#{$prefix}link-hover-color-rgb: var(--#{$prefix}themehovercolor-rgb);
+  	
+	--#{$prefix}primary: var(--#{$prefix}themecolor);
+	--#{$prefix}primary-rgb: var(--#{$prefix}themecolor-rgb);
+	
+	--#{$prefix}primary-text-emphasis: #{shade-color($theme-color, 60%)};
+	--#{$prefix}primary-bg-subtle: #{tint-color($theme-color, 80%)};
+	--#{$prefix}primary-border-subtle: #{tint-color($theme-color, 60%)};
+	
+	--#{$prefix}body-color: #{$body-color};
+	--#{$prefix}body-color-rgb: #{to-rgb($body-color)};
+	
+	--#{$prefix}heading-color: var(--bs-emphasis-color);
+	
+	// Font Families
+	--#{$prefix}body-font-family: #{$body-font-family};
+}
+
+@if $enable-dark-mode {
+  @include color-mode(dark, true) {
+    color-scheme: dark;
+	
+	--#{$prefix}link-color: var(--#{$prefix}themecolor);
+  	--#{$prefix}link-color-rgb: var(--#{$prefix}themecolor-rgb);
+	
+	--#{$prefix}link-hover-color: var(--#{$prefix}themehovercolor);
+	--#{$prefix}link-hover-color-rgb: var(--#{$prefix}themehovercolor-rgb);
+	
+	--#{$prefix}heading-color: var(--bs-emphasis-color);
+	
+	--#{$prefix}body-color: #{$body-color-dark};
+	--#{$prefix}body-color-rgb: #{to-rgb($body-color-dark)};
+
+	//--#{$prefix}body-color: #{$body-color-dark};
+	//--#{$prefix}body-color-rgb: #{to-rgb($gray-200)};
+	
+}
+}
